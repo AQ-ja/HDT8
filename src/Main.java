@@ -4,17 +4,15 @@
  * and open the template in the editor.
  */
 import java.io.*;
-import java.util.*;
+import java.sql.SQLOutput;
 import java.util.PriorityQueue;
-package hdt8;
-//Importacion de los paquetes necesarios.
+import java.util.Scanner;
 
 /**
  *
  * @author Alfredo Quezada
- * # 191002
- * - Hoja de Trabajo 8 
- * 26/03/2020
+ * 31-03-2020
+ * #191002 
  */
 public class Main {
 
@@ -37,7 +35,7 @@ public class Main {
         System.out.println("2. Priority Queue");
         String opcion = teclado.nextLine();
 
-        //Opcion 1 Vector Heap
+        //Opcion Vector Heap (osea 1)
         if (opcion.equals("1")){
             try {
                 //Se lee el documento pacientes que se encuentra en el proyecto
@@ -46,17 +44,19 @@ public class Main {
                 //String linea
                 String linea = "";
                 System.out.println("Los pacientes se atenderan en este orden, debido a su prioridad");
-                while((linea = br.readLine()) != null) { //mientras existan lineas
-                    String[] parts = linea.split(","); // Se va a crear una lista de Strings y se van a splitear por las comas
-                    String nombreL = parts[0]; // La parte 0 decada linea va a ser el nombre de los pacientes
-                    String enfermedadL= parts[1]; // La parte 1 de la lista va a ser la enfermedad de cada uno
-                    String categoriaL= parts[2];// La parte 2 que s la que nos interesa va a ser la categoria a comparar
+                //mientras existan lineas
+                while((linea = br.readLine()) != null) {
+                     // Se va a crear una lista de Strings y se van a splitear por las comas
+                    String[] parts = linea.split(",");
+                    // La parte 0 decada linea va a ser el nombre de los pacientes
+                    String nombreL = parts[0];
+                    // La parte 1 de la lista va a ser la enfermedad de cada uno
+                    String enfermedadL= parts[1];
+                    // La parte 2 que s la que nos interesa va a ser la categoria a comparar
+                    String categoriaL= parts[2];
 
                     //Se agrega el paceinte a nuestro VecotrHeap
                     pacienteVectorHeap.add(new Paciente(nombreL,enfermedadL,categoriaL));
-                   // System.out.println(pacienteVectorHeap);
-                    //System.out.println("=====================================================");
-                    //System.out.println("=====================================================");
                 }
                 while (pacienteVectorHeap.size()>0){
                     //Se va a ir removiendo conforme a prioridad
@@ -70,28 +70,27 @@ public class Main {
             }
         }
 
-        //OPcion 2: PriorityQueue
+        //Opcion PriorityQueue (osea 2)
         else if (opcion.equals("2")){
             try {
-                //Se lee el documento
+                //Se lee el documento que se encuentra en la carpeta del proyecto
                 FileReader fr = new FileReader("pacientes.txt");
                 BufferedReader br = new BufferedReader(fr);
 
                 String linea = "";
-                //Mientras exisata algo en cada lina
+                //Mientras exista algo en cada lina
                 while((linea = br.readLine()) != null) {
                     String[] parts = linea.split(",");
-                    String nombreL = parts[0]; //
-                    String enfermedadL= parts[1]; //
-                    String categoriaL= parts[2];//
-                    //S
-                    //Se va a agregar a nuestro PriorityQueue
+                    String nombreL = parts[0]; 
+                    String enfermedadL= parts[1]; 
+                    String categoriaL= parts[2];
+                    //Se va a agregar al PriorityQueue para ordenarlo.
                     pacientePriorityQueue.add(new Paciente(nombreL,enfermedadL,categoriaL));
 
                 }
                 while (pacientePriorityQueue.size()>0){
                     System.out.println(pacientePriorityQueue.remove());
-                    //Imprimir en orden que se elimina
+                   
                 }
 
                 fr.close();
@@ -101,11 +100,10 @@ public class Main {
             }
 
         }
-        //Si ingresa opcion invalida
+        //else de opcion invalida
         else{
             System.out.println("Opcion no válida");
         }
+
     }
-    
-    
 }

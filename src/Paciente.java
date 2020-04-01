@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hdt8;
 
 /**
  *
- * @author Quezada
+ * @author Alfredo Quezada
+ * 31-03-2020
+ * #191002 
  */
-public class Paciente implments Comparable<Paciente>{
-    //Atributos
+public class Paciente implements Comparable<Paciente> {
+     //Atributos
     String nombre = "";
     String enfermedad = "";
     String categoria = "";
@@ -27,7 +28,7 @@ public class Paciente implments Comparable<Paciente>{
         this.categoria = categoria;
     }
 
-    //Sets y gets
+    //Sets ands gets
 
     public String getNombre() {
         return nombre;
@@ -54,7 +55,6 @@ public class Paciente implments Comparable<Paciente>{
     }
 
     //Compare To para comparar el tipo de categoria de nuestros pacientes
-    @Override
     public int compareTo(Paciente o) {
         return categoria.compareTo(o.categoria);
     }
@@ -67,7 +67,5 @@ public class Paciente implments Comparable<Paciente>{
                 ", Enfermedad'" + enfermedad + '\'' +
                 ", Categoria'" + categoria + '\'' ;
     }
-}
-
     
 }
