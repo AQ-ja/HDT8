@@ -1,6 +1,4 @@
-
-Maria Ramirez, apendicitis, A
-Carmen Sarmientos, dolores de parto, B
 Juan Perez, fractura de pierna, C
+Maria Ramirez, apendicitis, A
 Lorenzo Toledo, chikunguya, E
-Alberto Zabu, Covid-19, Z
+Carmen Sarmientos, dolores de parto, B
